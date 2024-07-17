@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:copy_of_margdrashak/pages/interview%20questions/interview_que.dart';
 import 'package:flutter/material.dart';
 import 'package:hidden_drawer_menu/hidden_drawer_menu.dart';
 
@@ -23,7 +24,6 @@ class _HiddenDrawerState extends State<HiddenDrawer> {
   final my_style =
       TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: Colors.white);
 
-  void logout_user() {}
   @override
   void initState() {
     super.initState();
@@ -32,11 +32,11 @@ class _HiddenDrawerState extends State<HiddenDrawer> {
           ItemHiddenMenu(
               name: 'HOME ', baseStyle: my_style, selectedStyle: my_style),
           StartPage()),
-           ScreenHiddenDrawer(
+      ScreenHiddenDrawer(
           ItemHiddenMenu(
               name: 'COURSES', baseStyle: my_style, selectedStyle: my_style),
           Courses()),
-            ScreenHiddenDrawer(
+      ScreenHiddenDrawer(
           ItemHiddenMenu(
               name: 'RESUME REVIEW',
               baseStyle: my_style,
@@ -46,12 +46,11 @@ class _HiddenDrawerState extends State<HiddenDrawer> {
           ItemHiddenMenu(
               name: 'QUIZESS', baseStyle: my_style, selectedStyle: my_style),
           QuizGenerator()),
-    
       ScreenHiddenDrawer(
           ItemHiddenMenu(
               name: 'ATS SCORE ', baseStyle: my_style, selectedStyle: my_style),
           Ats()),
-           ScreenHiddenDrawer(
+      ScreenHiddenDrawer(
           ItemHiddenMenu(
               name: 'PROFILE', baseStyle: my_style, selectedStyle: my_style),
           Profile()),
@@ -59,25 +58,26 @@ class _HiddenDrawerState extends State<HiddenDrawer> {
           ItemHiddenMenu(
               name: 'SETTINGS', baseStyle: my_style, selectedStyle: my_style),
           Settings()),
-     
-     
-      
+      ScreenHiddenDrawer(
+          ItemHiddenMenu(
+              name: 'INTERVIEW QUESTIONS', baseStyle: my_style, selectedStyle: my_style),
+          InterviewQue()),
     ];
   }
 
   @override
   Widget build(BuildContext context) {
     return HiddenDrawerMenu(
-        backgroundColorMenu: Colors.grey[600]!,
-        screens: pages,
-        initPositionSelected: 0,
-        slidePercent: 60,
-        verticalScalePercent: 80,
-        enableCornerAnimation: true,
-        contentCornerRadius: 20,
-        curveAnimation: Curves.easeInOutBack,
-        isTitleCentered: true,
-        disableAppBarDefault: true,
-        );
+      backgroundColorMenu: Colors.grey[600]!,
+      screens: pages,
+      initPositionSelected: 0,
+      slidePercent: 60,
+      verticalScalePercent: 80,
+      enableCornerAnimation: true,
+      contentCornerRadius: 20,
+      curveAnimation: Curves.easeInOutBack,
+      isTitleCentered: true,
+      disableAppBarDefault: true,
+    );
   }
 }

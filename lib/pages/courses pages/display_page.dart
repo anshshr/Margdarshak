@@ -34,7 +34,7 @@ class _DisplayPageState extends State<DisplayPage> {
     await get_youtube_data();
   }
 
-  void show_web_view(String url) {}
+
 
   @override
   void initState() {

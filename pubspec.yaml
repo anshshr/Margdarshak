@@ -53,6 +53,8 @@ dependencies:
   firebase_auth: ^4.20.0
   carousel_slider: ^4.2.1
   youtube_player_flutter: ^8.1.2
+  url_launcher: ^6.3.0
+  flutter_credit_card: ^4.0.1
 
 dev_dependencies:
   flutter_test:

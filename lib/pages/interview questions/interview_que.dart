@@ -1,9 +1,6 @@
-import 'dart:ffi';
-
 import 'package:copy_of_margdrashak/gemini/gemini_services.dart';
 import 'package:copy_of_margdrashak/pages/interview%20questions/questions.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class InterviewQue extends StatefulWidget {
@@ -37,33 +34,62 @@ class _InterviewQueState extends State<InterviewQue> {
       body: Container(
           height: double.infinity,
           width: double.infinity,
+          padding: EdgeInsets.symmetric(horizontal: 15)
+              .copyWith(top: 35, bottom: 20),
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [
+                Colors.greenAccent[100]!,
+                Colors.greenAccent[200]!,
+                Colors.greenAccent[200]!,
+                Colors.greenAccent[400]!,
+                Colors.greenAccent[200]!,
+              ])),
           child: Column(
             children: <Widget>[
-              Text('get prepared for your intervierws'),
-              SizedBox(
-                height: 20,
+              Text(
+                'Get Prepared for your Intervierws',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
               ),
               Expanded(
                 child: ListView.builder(
                   itemCount: courses.length,
                   itemBuilder: (context, index) {
-                    print('listview builder started');
                     return GestureDetector(
-                      child: Text(courses[index]),
+                      child: Card(
+                        margin: EdgeInsets.symmetric(vertical: 10),
+                        shadowColor: Colors.grey,
+                        borderOnForeground: true,
+                        color: Colors.white,
+                        elevation: 10,
+                        child: Center(
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 20, vertical: 40),
+                            child: Text(
+                              courses[index],
+                              style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black87),
+                            ),
+                          ),
+                        ),
+                      ),
                       onTap: () async {
-                        String gemini_ans = await gemini_api.getgeminidata(
-                            'can you give me the top 10 interview questions with answers of ${courses[index]}');
-                        setState(() {
-                          ans = gemini_ans;
-                        });
-                        // print('after setstate');
+                        // String gemini_ans = await gemini_api.getgeminidata(
+                        //     'can you give me the top 20 interview questions with detailed answers of ${courses[index]}');
+                        // setState(() {
+                        //   ans = gemini_ans;
+                        // });
 
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => Questions(
-                                gemini_questions: ans,
-                              ),
+                              builder: (context) =>
+                                  Questions(topic: courses[index],),
                             ));
                       },
                     );

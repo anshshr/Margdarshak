@@ -1,1 +1,1 @@
-final gemini_api_key_value = "YOUR API KEY`";
+final gemini_api_key_value = "AIzaSyDi4t3C0UUeZArtyQiAO6alqKgwYc5JHio";

@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:copy_of_margdrashak/pages/interview%20questions/interview_que.dart';
+import 'package:copy_of_margdrashak/pages/payments/offers_page.dart';
 import 'package:flutter/material.dart';
 import 'package:hidden_drawer_menu/hidden_drawer_menu.dart';
 
@@ -38,12 +39,6 @@ class _HiddenDrawerState extends State<HiddenDrawer> {
           Courses()),
       ScreenHiddenDrawer(
           ItemHiddenMenu(
-              name: 'RESUME REVIEW',
-              baseStyle: my_style,
-              selectedStyle: my_style),
-          ResumeReview()),
-      ScreenHiddenDrawer(
-          ItemHiddenMenu(
               name: 'QUIZESS', baseStyle: my_style, selectedStyle: my_style),
           QuizGenerator()),
       ScreenHiddenDrawer(
@@ -52,16 +47,30 @@ class _HiddenDrawerState extends State<HiddenDrawer> {
           Ats()),
       ScreenHiddenDrawer(
           ItemHiddenMenu(
+              name: 'RESUME REVIEW',
+              baseStyle: my_style,
+              selectedStyle: my_style),
+          ResumeReview()),
+      ScreenHiddenDrawer(
+          ItemHiddenMenu(
+              name: 'INTERVIEW PREP',
+              baseStyle: my_style,
+              selectedStyle: my_style),
+          InterviewQue()),
+      ScreenHiddenDrawer(
+          ItemHiddenMenu(
               name: 'PROFILE', baseStyle: my_style, selectedStyle: my_style),
           Profile()),
       ScreenHiddenDrawer(
           ItemHiddenMenu(
-              name: 'SETTINGS', baseStyle: my_style, selectedStyle: my_style),
-          Settings()),
+              name: 'PAYMENT SECTION',
+              baseStyle: my_style,
+              selectedStyle: my_style),
+          OffersPage()),
       ScreenHiddenDrawer(
           ItemHiddenMenu(
-              name: 'INTERVIEW QUESTIONS', baseStyle: my_style, selectedStyle: my_style),
-          InterviewQue()),
+              name: 'SETTINGS', baseStyle: my_style, selectedStyle: my_style),
+          Settings()),
     ];
   }
 

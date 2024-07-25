@@ -27,9 +27,10 @@ Future<dynamic> get_jobs(query) async {
       // print(jsonResponse['jobs_results'][1]['description']);
 
       // print(jsonResponse['jobs_results'][1]['job_highlights'][0]['title']); // qualifications required
-      // print(jsonResponse['jobs_results'][1]['job_highlights'][0]['items']); //requirements
+      // print(jsonResponse['jobs_results'][1]['job_highlights'][0]['items'][0]); //requirements
 
       // print(jsonResponse['jobs_results'][1]['related_links'][0]['link']);  // job link
+      // print(jsonResponse['jobs_results'][1]['thumbnail']);  // thumbnail of company
 
 
       return jsonResponse['jobs_results'];

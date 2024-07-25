@@ -4,11 +4,11 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:copy_of_margdrashak/my%20widgets/my_container.dart';
+import 'package:copy_of_margdrashak/pages/home%20page/jobs_list.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
-import '../../extra operations/job_api.dart';
 
 class StartPage extends StatefulWidget {
   const StartPage({super.key});
@@ -21,34 +21,17 @@ class _StartPageState extends State<StartPage> {
   String? name;
   File? file;
   List courses = [];
-  List<dynamic> data1 = [];
-  List<dynamic> data2 = [];
-  List<dynamic> data3 = [];
 
   @override
   void initState() {
     super.initState();
     get_total_details();
   }
-  Future get_total_details() async{
+
+  Future get_total_details() async {
     await get_details();
-    await get_job_details();
   }
 
-  Future get_job_details() async {
-    List<dynamic> job_data1 = await get_jobs(courses[0]);
-    setState(() {
-      data1.addAll(job_data1);
-    });
-    List<dynamic> job_data2 = await get_jobs(courses[0]);
-    setState(() {
-      data2.addAll(job_data2);
-    });
-    List<dynamic> job_data3 = await get_jobs(courses[0]);
-    setState(() {
-      data3.addAll(job_data3);
-    });
-  }
 
   Future get_details() async {
     SharedPreferences pref = await SharedPreferences.getInstance();
@@ -153,13 +136,14 @@ class _StartPageState extends State<StartPage> {
                 Colors.blue
               ])),
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 60).copyWith(bottom: 0),
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 60)
+                .copyWith(bottom: 0),
             child: Column(
               children: [
                 Row(
                   children: [
                     //circle avatar for displaying image uploaded by user
-            
+
                     CircleAvatar(
                       radius: 30,
                       child: Center(
@@ -183,7 +167,7 @@ class _StartPageState extends State<StartPage> {
                     SizedBox(
                       width: 20,
                     ),
-            
+
                     //welcome text
                     Text(
                       'Welcome  $name ',
@@ -195,7 +179,7 @@ class _StartPageState extends State<StartPage> {
                 SizedBox(
                   height: 20,
                 ),
-            
+
                 Text(
                   'We have got the best things  covered for you',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
@@ -204,7 +188,7 @@ class _StartPageState extends State<StartPage> {
                   height: 30,
                 ),
                 //name of features  in decorative manner
-            
+
                 CarouselSlider(
                     items: images,
                     options: CarouselOptions(
@@ -225,103 +209,41 @@ class _StartPageState extends State<StartPage> {
                 SizedBox(
                   height: 20,
                 ),
-            
+
                 Align(
                     alignment: Alignment.topLeft,
                     child: Text(
-                      'Top Job Picks for only you , ',
+                      'Top Picks for only you , ',
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                     )),
-                //some important courses and documentation
-            
-            
-                // courses[0] ke liye
-                Expanded(
-                  child: ListView.builder(
-                    itemCount: data1.length,
-                    itemBuilder: (context, index) {
-                      return GestureDetector(
-                        onTap: () {},
-                        child: Card(
-                          shadowColor: Colors.grey,
-                          borderOnForeground: true,
-                          color: Colors.white,
-                          elevation: 5,
-                          
-                          child: Column(
-                            children: [
-                              //title text
-                              Text( '⭐   ' +data1[index]['title'],style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold),),
-                                
-                              //company name and location
-                              Text(data1[index]['company_name'],style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold)),
 
-                              //location of company
-                              Text(data1[index]['location'],style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold)),
-                            ],
-                          ),
-                        ),
-                      );
-                    },
-                  ),
+                SizedBox(
+                  height: 20,
                 ),
-            
-                //courses[1] ke liye
-                // Expanded(
-                //   child: ListView.builder(
-                //     itemCount: 10,
-                //     itemBuilder: (context, index) {
-                //       return GestureDetector(
-                //         onTap: () {},
-                //         child: Card(
-                //           shadowColor: Colors.grey,
-                //           borderOnForeground: true,
-                //           color: Colors.white,
-                //           elevation: 5,
-                //           margin:
-                //               EdgeInsets.symmetric(vertical: 10, horizontal: 5),
-                //           child: Column(
-                //             children: [
-                //               //title text
-            
-                //               //company name and location
-                //             ],
-                //           ),
-                //         ),
-                //       );
-                //     },
-                //   ),
-                // ),
-            
-                // // courses[2] ke liye
-                // Expanded(
-                //   child: ListView.builder(
-                //     itemCount: 10,
-                //     itemBuilder: (context, index) {
-                //       return GestureDetector(
-                //         onTap: () {},
-                //         child: Card(
-                //           shadowColor: Colors.grey,
-                //           borderOnForeground: true,
-                //           color: Colors.white,
-                //           elevation: 5,
-                //           margin:
-                //               EdgeInsets.symmetric(vertical: 10, horizontal: 5),
-                //           child: Column(
-                //             children: [
-                //               //title text
-            
-                //               //company name and location
-                //             ],
-                //           ),
-                //         ),
-                //       );
-                //     },
-                //   ),
-                // )
-            
-                //
+                InkWell(
+                  child: Card(
+                    shadowColor: Colors.grey,
+                    borderOnForeground: true,
+                    color: Colors.white,
+                    elevation: 10,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 10),
+                      child: Text(
+                        '👨🏾‍💻👨🏾‍💻  SEE THE JOBS OF YOUR PREFERENCE',
+                        style:
+                            TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ),
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => JobDisplayPage(),
+                        ));
+                  },
+                )
               ],
             ),
           ),

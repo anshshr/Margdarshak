@@ -7,22 +7,29 @@ import 'package:lottie/lottie.dart';
 
 import 'my_button.dart';
 
-Future dialog(BuildContext context , String text) async {
- return showDialog(
+Future dialog(BuildContext context, String text) async {
+  return showDialog(
       context: context,
       builder: (context) {
         return AlertDialog(
           actionsAlignment: MainAxisAlignment.center,
           elevation: 6,
-          title: Text('ALERT',style: TextStyle(fontWeight: FontWeight.bold),),
+          title: Text(
+            'ALERT',
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
           backgroundColor: Colors.grey[200],
           actions: [
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Lottie.network('https://lottie.host/638835a4-bf05-4cb7-af6f-928e4bfc11cf/jTMpHI8DVd.json',height: 100),
-
-                Text(text,style: TextStyle(fontSize: 16.5,fontWeight: FontWeight.bold),),
+                Lottie.network(
+                    'https://lottie.host/638835a4-bf05-4cb7-af6f-928e4bfc11cf/jTMpHI8DVd.json',
+                    height: 100),
+                Text(
+                  text,
+                  style: TextStyle(fontSize: 16.5, fontWeight: FontWeight.bold),
+                ),
                 SizedBox(
                   height: 20,
                 ),
@@ -37,4 +44,3 @@ Future dialog(BuildContext context , String text) async {
         );
       });
 }
-

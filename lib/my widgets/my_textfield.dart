@@ -7,14 +7,14 @@ class my_textfield extends StatelessWidget {
   final String hint_text;
   final bool obs_text;
   final TextEditingController controlller;
- final IconButton? icon;
+  final IconButton? icon;
 
   my_textfield({
     Key? key,
     required this.hint_text,
     required this.obs_text,
     required this.controlller,
-     this.icon,
+    this.icon,
   }) : super(key: key);
 
   @override
@@ -28,14 +28,17 @@ class my_textfield extends StatelessWidget {
           label: Text(hint_text),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(20)),
-            borderSide: BorderSide(color: Colors.black,style: BorderStyle.solid,width: 1.5),
+            borderSide: BorderSide(
+                color: Colors.black, style: BorderStyle.solid, width: 1.5),
           ),
           contentPadding: EdgeInsets.symmetric(horizontal: 13),
           border: UnderlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(20)),
-              borderSide: BorderSide(
-                  color: Colors.purple[200]!,
-                  width: 30,style: BorderStyle.solid),)),
+            borderRadius: BorderRadius.all(Radius.circular(20)),
+            borderSide: BorderSide(
+                color: Colors.purple[200]!,
+                width: 30,
+                style: BorderStyle.solid),
+          )),
     );
   }
 }

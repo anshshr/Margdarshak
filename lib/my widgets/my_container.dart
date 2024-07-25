@@ -12,7 +12,6 @@ class my_container extends StatelessWidget {
     required this.url,
     required this.title_text,
     required this.desc_text,
-
     required this.base_icon,
   }) : super(key: key);
 
@@ -44,8 +43,12 @@ class my_container extends StatelessWidget {
                   Row(children: [
                     //icon for the feature
                     Padding(
-                        padding: const EdgeInsets.only(left: 20), child:        Icon(Icons.star,size: 27,),
-),
+                      padding: const EdgeInsets.only(left: 20),
+                      child: Icon(
+                        Icons.star,
+                        size: 27,
+                      ),
+                    ),
                     SizedBox(
                       width: 20,
                     ),
@@ -56,18 +59,23 @@ class my_container extends StatelessWidget {
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                     ),
                   ]),
-                  SizedBox(height: 4,),
-            
-              //center icons for display
+                  SizedBox(
+                    height: 4,
+                  ),
+
+                  //center icons for display
                   base_icon,
-            
-                  SizedBox(height: 5,),
+
+                  SizedBox(
+                    height: 5,
+                  ),
                   //description text
                   Padding(
                     padding: const EdgeInsets.only(left: 13),
                     child: Text(
                       desc_text,
-                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
                     ),
                   )
                 ],

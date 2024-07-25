@@ -54,7 +54,7 @@ class _QuizStartState extends State<QuizStart> {
   //answer checking of user
   Future<void> check_answer() async {
     String ans = await gemini_api.getgeminidata(
-        '$question and my answer to the question is $my_answer. Rate my answer out of 10 and suggest me some required improvements in my answer in short and precise words .');
+        '$question and my answer to the question is $my_answer. Rate my answer and my communication skills out of 10 suggest me some required improvements in my answer in short and precise words .');
     setState(() {
       gemini_ans = ans.replaceAll("*", " ");
     });

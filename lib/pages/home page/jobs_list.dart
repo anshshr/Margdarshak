@@ -1,6 +1,5 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'dart:ffi';
 
 import 'package:copy_of_margdrashak/extra%20operations/job_api.dart';
 import 'package:copy_of_margdrashak/pages/home%20page/jobs_details.dart';

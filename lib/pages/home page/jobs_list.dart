@@ -1,6 +1,5 @@
 // ignore_for_file: prefer_const_constructors
 
-
 import 'package:copy_of_margdrashak/extra%20operations/job_api.dart';
 import 'package:copy_of_margdrashak/pages/home%20page/jobs_details.dart';
 import 'package:flutter/material.dart';
@@ -33,6 +32,7 @@ class _JobDisplayPageState extends State<JobDisplayPage> {
         data[i].addAll(job_data);
       });
     }
+    print(data);
     setState(() {
       isloaded = true;
     });
@@ -105,6 +105,8 @@ class _JobDisplayPageState extends State<JobDisplayPage> {
                                         padding: const EdgeInsets.all(13),
                                         child: InkWell(
                                           child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
                                             children: <Widget>[
                                               //job title
                                               Text(
@@ -114,7 +116,6 @@ class _JobDisplayPageState extends State<JobDisplayPage> {
                                                     fontWeight:
                                                         FontWeight.bold),
                                               ),
-
                                               //company name
                                               Text(
                                                 data[outerindex][innerindex]
@@ -133,70 +134,43 @@ class _JobDisplayPageState extends State<JobDisplayPage> {
                                                     fontWeight:
                                                         FontWeight.bold),
                                               ),
-                                              //jobs  description
-                                              // Text(
-                                              //   data[outerindex][innerindex]
-                                              //       ['description'],
-                                              //   style: TextStyle(
-                                              //       fontSize: 15,
-                                              //       fontWeight: FontWeight.bold),
-                                              // ),
-                                              // //title of item to be displayed
-                                              // Text(
-                                              //   data[outerindex][innerindex]
-                                              //           ['job_highlights'][0]
-                                              //       ['items'][0],
-                                              //   style: TextStyle(
-                                              //       fontSize: 15,
-                                              //       fontWeight: FontWeight.bold),
-                                              // ),
-                                              // Text('link to appply starts here'),
-
-                                              // // link to job
-                                              // Text(
-                                              //   data[outerindex][innerindex]
-                                              //       ['related_links'][0]['link'],
-                                              //   style: TextStyle(
-                                              //       fontSize: 15,
-                                              //       fontWeight: FontWeight.bold),
-                                              // ),
-                                              // Text('link to appply ends here'),
-                                              // //image of the job provider
-                                              // Image.network(
-                                              //   data[outerindex][innerindex]
-                                              //                   ['thumbnail'] !=
-                                              //               null &&
-                                              //           data[outerindex]
-                                              //                       [innerindex]
-                                              //                   ['thumbnail']
-                                              //               .isNotEmpty
-                                              //       ? data[outerindex][innerindex]
-                                              //           ['thumbnail']
-                                              //       : 'https://thumbs.dreamstime.com/b/job-search-to-find-try-out-different-jobs-career-change-starting-new-292355991.jpg',
-                                              //   height: 100,
-                                              //   width: 100,
-                                              //   fit: BoxFit.cover,
-                                              // )
                                             ],
                                           ),
                                           onTap: () {
+                                            String apply_job_link =data[outerindex][innerindex]['related_links'][0]['link'];
+                                            String comp_name = data[outerindex][innerindex]['company_name'];  
+                                            String desc = data[outerindex][innerindex]['description']; 
+                                            String job_location =data[outerindex][innerindex]['location'];         
+                                            String job_thumbanil =data[outerindex][innerindex]['thumbnail'];
+                                            String job_title = data[outerindex][innerindex]['job_highlights'][0]['items'][0];
                                             Navigator.push(
                                                 context,
                                                 MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      JobsDetails(
-                                                    apply_link: data[outerindex][innerindex]['related_links'][0]['link'],
-                                                    company_name:
-                                                        data[outerindex][innerindex]['company_name'],
-                                                    description:
-                                                        data[outerindex][innerindex]['description'],
-                                                    location: data[outerindex][innerindex]['location'],
-                                                    thumbnail_url: data[outerindex][innerindex]['thumbnail'] !=null &&
-                                                            data[outerindex][innerindex]['thumbnail'].isNotEmpty
-                                                        ? data[outerindex][innerindex]['thumbnail']
-                                                        : 'https://thumbs.dreamstime.com/b/job-search-to-find-try-out-different-jobs-career-change-starting-new-292355991.jpg',
-                                                    title: data[outerindex][innerindex]['job_highlights'][0]['items'][0],
-                                                  ),
+                                                  builder: (context) => JobsDetails(
+                                                      apply_link: apply_job_link != null &&
+                                                              apply_job_link
+                                                                  .isNotEmpty
+                                                          ? apply_job_link
+                                                          : 'https://www.naukri.com/random-jobs',
+                                                      company_name:
+                                                          comp_name != null && comp_name.isNotEmpty
+                                                              ? comp_name
+                                                              : 'Not Specified',
+                                                      description: desc != null &&
+                                                              desc.isNotEmpty
+                                                          ? desc
+                                                          : 'Not provided',
+                                                      location: job_location != null && job_location.isNotEmpty
+                                                          ? job_location
+                                                          : 'Remote',
+                                                      thumbnail_url:
+                                                          job_thumbanil != null && job_thumbanil.isNotEmpty
+                                                              ? job_thumbanil
+                                                              : 'https://thumbs.dreamstime.com/b/job-search-to-find-try-out-different-jobs-career-change-starting-new-292355991.jpg',
+                                                      title: job_title != null &&
+                                                              job_title.isNotEmpty
+                                                          ? job_title
+                                                          : 'No title specified'),
                                                 ));
                                           },
                                         ),
@@ -230,7 +204,7 @@ class _JobDisplayPageState extends State<JobDisplayPage> {
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 17.5,
-                            color: Colors.white70),
+                            color: Colors.black87),
                       )
                     ],
                   ))),

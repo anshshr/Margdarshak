@@ -1,8 +1,10 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, use_build_context_synchronously, prefer_const_constructors
 
 import 'package:copy_of_margdrashak/pages/liquid%20swipe/swipe_pages.dart';
+import 'package:copy_of_margdrashak/pages/settings%20details/developer_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -71,7 +73,7 @@ class _SettingsState extends State<Settings> {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                my_card('ABOUT', () {
+                my_card('ABOUT APP', () {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -83,6 +85,13 @@ class _SettingsState extends State<Settings> {
                 }, Icon(Icons.report_problem, size: 30, color: Colors.black87)),
                 my_card('FEEDBACK', () async {
                   await feedback_dialog(context);
+                }, Icon(Icons.feedback, size: 30, color: Colors.black87)),
+                my_card('DEVELOPER DETAILS', () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => DeveloperPage(),
+                      ));
                 }, Icon(Icons.feedback, size: 30, color: Colors.black87)),
                 my_card('LOGOUT', () async {
                   SharedPreferences pref =

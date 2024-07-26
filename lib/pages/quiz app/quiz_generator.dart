@@ -38,6 +38,8 @@ class _QuizGeneratorState extends State<QuizGenerator> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
+                Text('Hello , I am Arya(A.I. assistant)',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17),),
+                SizedBox(height: 10,),
                 //space for animation
 
                 Lottie.network(
@@ -47,6 +49,7 @@ class _QuizGeneratorState extends State<QuizGenerator> {
                 SizedBox(
                   height: 30,
                 ),
+                Text("Let's start learning , Please fill all the Details",style: TextStyle(fontWeight: FontWeight.w600,fontSize: 16),),
 
                 //field for topic
                 my_textfield(
@@ -73,7 +76,7 @@ class _QuizGeneratorState extends State<QuizGenerator> {
                     controlller: level),
 
                 SizedBox(
-                  height: 30,
+                  height: 10,
                 ),
 
                 //button for starting the quiz.
@@ -92,12 +95,6 @@ class _QuizGeneratorState extends State<QuizGenerator> {
                                 value: number.text,
                               ),
                             ));
-
-                        // setState(() {
-                        //   level.text = "";
-                        //   topic.text = "";
-                        //   number.text = "";
-                        // });
                       } else {
                         dialog(context, 'Please Fill all the Details');
                       }

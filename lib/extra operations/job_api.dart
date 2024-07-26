@@ -2,13 +2,15 @@
 
 import 'dart:convert';
 
+import 'package:copy_of_margdrashak/gemini/secrets.dart';
 import 'package:http/http.dart' as http;
 
 Future<dynamic> get_jobs(query) async {
   try {
-    const apiKey =
-        '78691335c33512b7e3fb6cc06e5b8bef381b99ca05f63235e555609b3a2e9ebe';
-    //  query = 'flutter';
+    // const apiKey =
+    var apiKey = serp_api_key;
+    //     'ecb0f7cc1cbba52f415996748a48cbbefff008aa2e2daa696a64e143e240ec4c';
+
     String url =
         'https://serpapi.com/search.json?engine=google_jobs&q=$query&hl=en&api_key=$apiKey';
 
@@ -32,14 +34,15 @@ Future<dynamic> get_jobs(query) async {
       // print(jsonResponse['jobs_results'][1]['related_links'][0]['link']);  // job link
       // print(jsonResponse['jobs_results'][1]['thumbnail']);  // thumbnail of company
 
-
       return jsonResponse['jobs_results'];
     } else {
       print('Request failed with status: ${response.statusCode}.');
-        return [{
-      'error' : 'unable to fetch data',
-      'status code ' : response.statusCode,
-    }];
+      return [
+        {
+          'error': 'unable to fetch data',
+          'status code ': response.statusCode,
+        }
+      ];
     }
   } catch (e) {
     print(e.toString());

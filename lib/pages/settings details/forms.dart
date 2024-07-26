@@ -135,7 +135,7 @@ Future feedback_dialog(BuildContext context) {
                     borderRadius: BorderRadius.circular(20)),
                 contentPadding:
                     EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                hintText: 'Enter your Feedgack',
+                hintText: 'Enter your Feedback',
               ),
             ),
             SizedBox(

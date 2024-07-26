@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-
 class DeveloperPage extends StatelessWidget {
   const DeveloperPage({super.key});
 
@@ -82,31 +81,46 @@ class DeveloperPage extends StatelessWidget {
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 5),
-              InkWell(
-                  child: Text(
-                    'LinkedIn: linkedin.com/in/ansh-shrivastav-a97520250',
-                    style: TextStyle(color: Colors.blue),
-                  ),
-                  onTap: () async {
-                    String linkedin_link =
-                        'https://linkedin.com/in/ansh-shrivastav-a97520250';
-
-                    await launchUrl(
-                        Uri.parse(
-                          linkedin_link,
-                        ),
-                        mode: LaunchMode.inAppBrowserView);
-                  }),
-              InkWell(
-                  child: Text(
-                    'GitHub: github.com/anshshr',
-                    style: TextStyle(color: Colors.blue),
-                  ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  //lnkedin url
+                  InkWell(
+                      child: Image.network(
+                          'https://static.vecteezy.com/system/resources/previews/022/498/168/original/3d-linkedin-logo-icon-isolated-on-transparent-background-free-png.png',height: 50,width: 50,),
+                     
+                      onTap: () async {
+                        String linkedin_link =
+                            'https://linkedin.com/in/ansh-shrivastav-a97520250';
+                  
+                        await launchUrl(
+                            Uri.parse(
+                              linkedin_link,
+                            ),
+                            mode: LaunchMode.inAppBrowserView);
+                      }),
+                      SizedBox(width: 10,),
+                      //github url
+                      InkWell(
+                child: Image.network('https://cdn3d.iconscout.com/3d/free/thumb/free-github-8173947-6491025.png?f=webp',height: 50,width: 50),
                   onTap: () {
                     String github_link = 'https://github.com/anshshr';
                     launchUrl(Uri.parse(github_link),
                         mode: LaunchMode.inAppBrowserView);
                   }),
+                      SizedBox(width: 10,),
+                      //gmail url
+                      InkWell(
+                child: Image.network('https://ouch-cdn2.icons8.com/Q_mKQhLvgHc4CpJslA6YAg1orkPp2LG3W6rdaEQZ1oo/rs:fit:456:456/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvOTYv/MzE3NWFhMzAtMmQw/Yi00MDgyLTlhZWMt/ZWUyZGNlYzQwYmM0/LnBuZw.png',height: 55,width: 50),
+                  onTap: () {
+                    String gmail_link = 'https://mail.google.com/mail/u/2/#inbox';
+                    launchUrl(Uri.parse(gmail_link),
+                        mode: LaunchMode.inAppBrowserView);
+                  }),
+                ],
+              ),
+              
+              
             ],
           ),
         ),

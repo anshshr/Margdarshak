@@ -1,10 +1,26 @@
+// ignore_for_file: non_constant_identifier_names
+
+import 'package:copy_of_margdrashak/extra%20operations/send_email.dart';
+import 'package:copy_of_margdrashak/pages/settings%20details/settings.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../my widgets/my_button.dart';
 import '../../my widgets/my_dialog.dart';
 
+// late SharedPreferences pref;
+// String name = '';
+// String email = '';
+
+// Future<void> getProfileData() async {
+//   // Add function body here
+//   pref = await SharedPreferences.getInstance();
+
+//   name = pref.getString('name')!;
+//   email = pref.getString('email')!;
+// }
+
 Future problem_dialog(BuildContext context) {
-  TextEditingController name = TextEditingController();
   TextEditingController problem = TextEditingController();
   return showDialog(
     context: context,
@@ -20,33 +36,6 @@ Future problem_dialog(BuildContext context) {
           ),
           backgroundColor: Colors.grey[100],
           actions: [
-            //name
-            TextField(
-              controller: name,
-              obscureText: false,
-              decoration: InputDecoration(
-                  hintText: 'Enter your name',
-                  label: Text('Enter your name'),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(20)),
-                    borderSide: BorderSide(
-                        color: Colors.black,
-                        style: BorderStyle.solid,
-                        width: 1.5),
-                  ),
-                  contentPadding: EdgeInsets.symmetric(horizontal: 14),
-                  border: UnderlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(20)),
-                    borderSide: BorderSide(
-                        color: Colors.purple[200]!,
-                        width: 30,
-                        style: BorderStyle.solid),
-                  )),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-
             //problem
             TextField(
               controller: problem,
@@ -67,11 +56,21 @@ Future problem_dialog(BuildContext context) {
 
             my_button(
                 text: 'S U B M I T',
-                ontap: () {
-                  if (name.text != "" && problem.text != "") {
+                ontap: () async {
+                  if (problem.text != "") {
+                    SharedPreferences pref =
+                        await SharedPreferences.getInstance();
+                    print('sending email');
+                    await send_email_from_app(
+                        pref.getString('name')!,
+                        pref.getString('email')!,
+                        'anshshriofficial@gmail.com',
+                        'PROBLEM REPORT OF MARGDARSHAK',
+                        problem.text);
+                    print('email sent');
                     Navigator.pop(context);
                   } else {
-                    dialog(context, 'Please Enter the Details');
+                    dialog(context, 'Please Enter all the Details');
                   }
                 })
           ],
@@ -80,9 +79,9 @@ Future problem_dialog(BuildContext context) {
     },
   );
 }
+
 Future feedback_dialog(BuildContext context) {
-  TextEditingController name = TextEditingController();
-  TextEditingController problem = TextEditingController();
+  TextEditingController feedback = TextEditingController();
   return showDialog(
     context: context,
     builder: (context) {
@@ -97,36 +96,9 @@ Future feedback_dialog(BuildContext context) {
           ),
           backgroundColor: Colors.grey[100],
           actions: [
-            //name
+            //feedback
             TextField(
-              controller: name,
-              obscureText: false,
-              decoration: InputDecoration(
-                  hintText: 'Enter your name',
-                  label: Text('Enter your name'),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(20)),
-                    borderSide: BorderSide(
-                        color: Colors.black,
-                        style: BorderStyle.solid,
-                        width: 1.5),
-                  ),
-                  contentPadding: EdgeInsets.symmetric(horizontal: 14),
-                  border: UnderlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(20)),
-                    borderSide: BorderSide(
-                        color: Colors.purple[200]!,
-                        width: 30,
-                        style: BorderStyle.solid),
-                  )),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-
-            //problem
-            TextField(
-              controller: problem,
+              controller: feedback,
               maxLines: 10,
               decoration: InputDecoration(
                 border: OutlineInputBorder(
@@ -144,11 +116,21 @@ Future feedback_dialog(BuildContext context) {
 
             my_button(
                 text: 'S U B M I T',
-                ontap: () {
-                  if (name.text != "" && problem.text != "") {
+                ontap: () async {
+                  if ( feedback.text != "" && feedback.text.isNotEmpty) {
+                    SharedPreferences pref =
+                        await SharedPreferences.getInstance();
+                    print('sending email');
+                    await send_email_from_app(
+                        pref.getString('name')!,
+                        pref.getString('email')!,
+                        'anshshriofficial@gmail.com',
+                        'FEEDBACK OF MARGDARSHAK APP',
+                        feedback.text);
+                    print('email sent');
                     Navigator.pop(context);
                   } else {
-                    dialog(context, 'Please Enter the Details');
+                    dialog(context, 'Please Enter all the Details');
                   }
                 })
           ],
@@ -157,6 +139,3 @@ Future feedback_dialog(BuildContext context) {
     },
   );
 }
-
-
-

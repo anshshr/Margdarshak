@@ -3,16 +3,14 @@
 
 // to show the complete job details of any job at the start page and also have acces to apply at the job as well
 
-import 'package:copy_of_margdrashak/my%20widgets/my_button.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class JobsDetails extends StatelessWidget {
   String title;
   String company_name;
   String location;
   String thumbnail_url;
-  String apply_link;
+  // String apply_link;
   String description;
 
   JobsDetails({
@@ -21,7 +19,7 @@ class JobsDetails extends StatelessWidget {
     required this.company_name,
     required this.location,
     required this.thumbnail_url,
-    required this.apply_link,
+    // required this.apply_link,
     required this.description,
   }) : super(key: key);
   final TextStyle heading_style =
@@ -112,13 +110,13 @@ class JobsDetails extends StatelessWidget {
                         description,
                         style: other_style,
                       ),
-                      my_button(
-                          text: 'APPLY',
-                          ontap: () async {
-                            // directing  to the page to apply the link of the job
-                            await launchUrl(Uri.parse(apply_link),
-                                mode: LaunchMode.inAppBrowserView);
-                          })
+                      // my_button(
+                      //     text: 'APPLY',
+                      //     ontap: () async {
+                      //       // directing  to the page to apply the link of the job
+                      //       await launchUrl(Uri.parse(apply_link),
+                      //           mode: LaunchMode.inAppBrowserView);
+                      //     })
                     ],
                   ),
                 ),

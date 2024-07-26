@@ -136,43 +136,42 @@ class _JobDisplayPageState extends State<JobDisplayPage> {
                                               ),
                                             ],
                                           ),
-                                          onTap: () {
-                                            String apply_job_link =data[outerindex][innerindex]['related_links'][0]['link'];
-                                            String comp_name = data[outerindex][innerindex]['company_name'];  
-                                            String desc = data[outerindex][innerindex]['description']; 
-                                            String job_location =data[outerindex][innerindex]['location'];         
-                                            String job_thumbanil =data[outerindex][innerindex]['thumbnail'];
-                                            String job_title = data[outerindex][innerindex]['job_highlights'][0]['items'][0];
-                                            Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                  builder: (context) => JobsDetails(
-                                                      apply_link: apply_job_link != null &&
-                                                              apply_job_link
-                                                                  .isNotEmpty
-                                                          ? apply_job_link
-                                                          : 'https://www.naukri.com/random-jobs',
-                                                      company_name:
-                                                          comp_name != null && comp_name.isNotEmpty
-                                                              ? comp_name
-                                                              : 'Not Specified',
-                                                      description: desc != null &&
-                                                              desc.isNotEmpty
-                                                          ? desc
-                                                          : 'Not provided',
-                                                      location: job_location != null && job_location.isNotEmpty
-                                                          ? job_location
-                                                          : 'Remote',
-                                                      thumbnail_url:
-                                                          job_thumbanil != null && job_thumbanil.isNotEmpty
-                                                              ? job_thumbanil
-                                                              : 'https://thumbs.dreamstime.com/b/job-search-to-find-try-out-different-jobs-career-change-starting-new-292355991.jpg',
-                                                      title: job_title != null &&
-                                                              job_title.isNotEmpty
-                                                          ? job_title
-                                                          : 'No title specified'),
-                                                ));
-                                          },
+                                         onTap: () {
+  var jobDetails = data[outerindex][innerindex];
+  // String apply_job_link = jobDetails['related_links'] != null && jobDetails['related_links'].isNotEmpty ? jobDetails['related_links'][0]['link'] : 'https://www.google.com/about/careers/applications/jobs/results#!t=jo&jid=127025001&';
+  String comp_name = jobDetails['company_name'];
+  String desc = jobDetails['description'];
+  String job_location = jobDetails['location'];
+  String job_thumbanil = jobDetails['thumbnail'] != null &&  jobDetails['thumbnail'].isNotEmpty? jobDetails['thumbnail'] : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNH_jg3tm7u-WlF4LCYG_Z09gsaIjmAGjiNQ&s';
+  String job_title = jobDetails['job_highlights'] != null && jobDetails['job_highlights'].isNotEmpty && jobDetails['job_highlights'][0]['items'] != null && jobDetails['job_highlights'][0]['items'].isNotEmpty ? jobDetails['job_highlights'][0]['items'][0] : 'no title specified';
+
+  Navigator.push(
+    context,
+    MaterialPageRoute(
+      builder: (context) => JobsDetails(
+        // apply_link: apply_job_link != null && apply_job_link.isNotEmpty
+        //     ? apply_job_link
+        //     : 'https://www.naukri.com/random-jobs',
+        company_name: comp_name != null && comp_name.isNotEmpty
+            ? comp_name
+            : 'Not Specified',
+        description: desc != null && desc.isNotEmpty
+            ? desc
+            : 'Not provided',
+        location: job_location != null && job_location.isNotEmpty
+            ? job_location
+            : 'Remote',
+        thumbnail_url: job_thumbanil != null && job_thumbanil.isNotEmpty
+            ? job_thumbanil
+            : 'https://cdn5.vectorstock.com/i/1000x1000/33/69/flat-cartoon-huge-letters-making-word-job-banner-vector-26483369.jpg',
+        title: job_title != null && job_title.isNotEmpty
+            ? job_title
+            : 'No title specified'
+      ),
+    ),
+  );
+}
+
                                         ),
                                       ),
                                     );

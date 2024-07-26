@@ -4,8 +4,6 @@ import 'package:copy_of_margdrashak/pages/liquid%20swipe/swipe_pages.dart';
 import 'package:copy_of_margdrashak/pages/settings%20details/developer_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'about_page.dart';
@@ -92,7 +90,7 @@ class _SettingsState extends State<Settings> {
                       MaterialPageRoute(
                         builder: (context) => DeveloperPage(),
                       ));
-                }, Icon(Icons.feedback, size: 30, color: Colors.black87)),
+                }, Icon(Icons.person, size: 30, color: Colors.black87)),
                 my_card('LOGOUT', () async {
                   SharedPreferences pref =
                       await SharedPreferences.getInstance();

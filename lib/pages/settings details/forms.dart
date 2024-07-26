@@ -1,24 +1,11 @@
 // ignore_for_file: non_constant_identifier_names
 
 import 'package:copy_of_margdrashak/extra%20operations/send_email.dart';
-import 'package:copy_of_margdrashak/pages/settings%20details/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../my widgets/my_button.dart';
 import '../../my widgets/my_dialog.dart';
-
-// late SharedPreferences pref;
-// String name = '';
-// String email = '';
-
-// Future<void> getProfileData() async {
-//   // Add function body here
-//   pref = await SharedPreferences.getInstance();
-
-//   name = pref.getString('name')!;
-//   email = pref.getString('email')!;
-// }
 
 Future problem_dialog(BuildContext context) {
   TextEditingController problem = TextEditingController();

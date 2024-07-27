@@ -1,4 +1,4 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first, non_constant_identifier_names, use_super_parameters
+// ignore_for_file: public_member_api_docs, sort_constructors_first, non_constant_identifier_names, use_super_parameters, must_be_immutable
 // ignore_for_file: prefer_const_constructors
 
 // to show the complete job details of any job at the start page and also have acces to apply at the job as well

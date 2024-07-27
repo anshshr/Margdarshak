@@ -1,4 +1,4 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first, prefer_const_constructors
+// ignore_for_file: public_member_api_docs, sort_constructors_first, prefer_const_constructors, must_be_immutable
 import 'package:copy_of_margdrashak/gemini/gemini_services.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';

@@ -12,7 +12,6 @@ import 'package:copy_of_margdrashak/pages/payments/offers_page.dart';
 import 'package:copy_of_margdrashak/pages/quiz%20app/quiz_generator.dart';
 import 'package:copy_of_margdrashak/pages/resume%20review/resume_review.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_launcher_icons/xml_templates.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 

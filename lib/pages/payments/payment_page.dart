@@ -1,9 +1,8 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first, unnecessary_null_comparison
+// ignore_for_file: public_member_api_docs, sort_constructors_first, unnecessary_null_comparison, must_be_immutable
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:copy_of_margdrashak/my%20widgets/hidden_drawer.dart';
 import 'package:copy_of_margdrashak/my%20widgets/my_dialog.dart';
-import 'package:copy_of_margdrashak/pages/payments/offers_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_credit_card/flutter_credit_card.dart';
 

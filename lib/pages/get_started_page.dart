@@ -103,7 +103,7 @@ class _HomePageState extends State<HomePage> {
               Colors.blue[300]!,
               Colors.red[100]!
             ], begin: Alignment.topLeft, end: Alignment.bottomRight)),
-            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 30),
+            padding: EdgeInsets.symmetric(horizontal: 5, vertical: 30),
             alignment: Alignment.centerLeft,
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,

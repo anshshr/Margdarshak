@@ -270,7 +270,6 @@ class _QuizStartState extends State<QuizStart> {
                                 //     MaterialPageRoute(
                                 //       builder: (context) => QuizGenerator(),
                                 //     ));
-
                                 Navigator.pop(context);
                               })
                           : Container()

@@ -1,4 +1,3 @@
-import 'package:copy_of_margdrashak/gemini/gemini_services.dart';
 import 'package:copy_of_margdrashak/pages/interview%20questions/questions.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -79,11 +78,7 @@ class _InterviewQueState extends State<InterviewQue> {
                         ),
                       ),
                       onTap: () async {
-                        // String gemini_ans = await gemini_api.getgeminidata(
-                        //     'can you give me the top 20 interview questions with detailed answers of ${courses[index]}');
-                        // setState(() {
-                        //   ans = gemini_ans;
-                        // });
+                        
 
                         Navigator.push(
                             context,

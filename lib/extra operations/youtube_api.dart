@@ -5,10 +5,8 @@ import 'package:copy_of_margdrashak/gemini/secrets.dart';
 import 'package:http/http.dart' as http;
 
 Future<dynamic> fetchYouTubeSearchResults(searchQuery) async {
-  // final apiKey =
-  //     'ecb0f7cc1cbba52f415996748a48cbbefff008aa2e2daa696a64e143e240ec4c';
+ 
   final apiKey = serp_api_key;
-  // final searchQuery = serch_query + 'programming courses';
   final url = Uri.parse(
       'https://serpapi.com/search.json?engine=youtube&search_query=$searchQuery&api_key=$apiKey');
 

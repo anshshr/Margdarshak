@@ -1,6 +1,7 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
+// ignore_for_file: public_member_api_docs, sort_constructors_first, unnecessary_null_comparison
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:copy_of_margdrashak/my%20widgets/hidden_drawer.dart';
 import 'package:copy_of_margdrashak/my%20widgets/my_dialog.dart';
 import 'package:copy_of_margdrashak/pages/payments/offers_page.dart';
 import 'package:flutter/material.dart';
@@ -29,42 +30,42 @@ class _PaymentPageState extends State<PaymentPage> {
   bool iscvvfocused = false;
 
   Future<void> show_animation_navigate() async {
-  showDialog(
-    context: context,
-    barrierDismissible: false,
-    builder: (context) {
-      return Dialog(
-        backgroundColor: Colors.transparent, 
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Lottie.network(
-              'https://lottie.host/61d7fdd4-c9c1-497a-a3a9-d1317f17e306/YRUAMEzLDh.json',
-              
-            ),
-            Text(
-              'PROCESSING PAYMENT',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
-                color: Colors.white,
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) {
+        return Dialog(
+          backgroundColor: Colors.transparent,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Lottie.network(
+                'https://lottie.host/61d7fdd4-c9c1-497a-a3a9-d1317f17e306/YRUAMEzLDh.json',
               ),
-            )
-          ],
-        ),
-      );
-    },
-  );
-  await Future.delayed(Duration(seconds: 6));
-  Navigator.of(context).pop();
+              Text(
+                'PROCESSING PAYMENT',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                  color: Colors.white,
+                ),
+              )
+            ],
+          ),
+        );
+      },
+    );
+    await Future.delayed(Duration(seconds: 6));
+    Navigator.of(context).pop();
 
-  Navigator.push(
+    Navigator.pushAndRemoveUntil(
       context,
       MaterialPageRoute(
-        builder: (context) => OffersPage(),
-      ));
-}
-
+      builder: (context) => HiddenDrawer(),
+      ),
+      (route) => false,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {

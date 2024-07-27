@@ -22,7 +22,7 @@ class _DisplayPageState extends State<DisplayPage> {
   bool isloaded = false;
   Future<void> get_youtube_data() async {
     List<dynamic> youtube_data =
-        await fetchYouTubeSearchResults(widget.course_name);
+        await fetchYouTubeSearchResults(widget.course_name + 'one shot pogramming courses'); 
     setState(() {
       data.addAll(youtube_data);
       isloaded = true;

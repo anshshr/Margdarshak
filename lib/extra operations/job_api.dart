@@ -7,9 +7,7 @@ import 'package:http/http.dart' as http;
 
 Future<dynamic> get_jobs(query) async {
   try {
-    // const apiKey =
     var apiKey = serp_api_key;
-    //     'ecb0f7cc1cbba52f415996748a48cbbefff008aa2e2daa696a64e143e240ec4c';
 
     String url =
         'https://serpapi.com/search.json?engine=google_jobs&q=$query&hl=en&api_key=$apiKey';

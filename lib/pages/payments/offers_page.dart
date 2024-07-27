@@ -3,7 +3,6 @@
 import 'package:copy_of_margdrashak/my%20widgets/my_button.dart';
 import 'package:copy_of_margdrashak/pages/payments/payment_page.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class OffersPage extends StatefulWidget {
   const OffersPage({super.key});

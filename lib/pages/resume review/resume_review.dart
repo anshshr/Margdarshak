@@ -60,7 +60,6 @@ class _ResumeReviewState extends State<ResumeReview> {
     showDialog(
       context: context,
       barrierDismissible: false,
-      // barrierColor: Colors.grey[100],
       builder: (BuildContext context) {
         return Center(
             child: Column(
@@ -116,9 +115,9 @@ class _ResumeReviewState extends State<ResumeReview> {
                 colors: [
               Colors.indigo[100]!,
               Colors.indigo[200]!,
-              Colors.indigo[300]!,
-              Colors.indigo[400]!,
-              Colors.indigo[500]!,
+              Colors.indigo[200]!,
+              Colors.indigo[200]!,
+              Colors.indigo[100]!,
             ])),
         child: SingleChildScrollView(
           child: Column(
@@ -137,7 +136,7 @@ class _ResumeReviewState extends State<ResumeReview> {
               ),
 
               Lottie.network(
-                  'https://lottie.host/56762602-07bd-4b0e-abc7-729ae74223e7/XGjXVTOwN2.json',
+                  'https://lottie.host/88ca1ed1-13da-40d6-ae8d-553ef71cca35/dabemQfHTg.json',
                   width: double.infinity,
                   height: 250),
 
@@ -154,6 +153,8 @@ class _ResumeReviewState extends State<ResumeReview> {
                     contentPadding:
                         EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                     hintText: 'Enter your job description',
+                    border: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.black87),borderRadius: BorderRadius.circular(13)),
                   ),
                   controller: job_desc,
                 ),

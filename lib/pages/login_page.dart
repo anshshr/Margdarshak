@@ -28,10 +28,11 @@ class _LoginPageState extends State<LoginPage> {
       backgroundColor: Colors.grey[200],
       body: Stack(children: [
         Image.network(
-          'https://i.pinimg.com/236x/a2/a8/5e/a2a85e517aa1eebc766042816761d8ff.jpg',
+          'https://img.freepik.com/free-vector/gradient-blur-pink-blue-abstract-background_53876-117324.jpg?size=626&ext=jpg&ga=GA1.1.1700460183.1712793600&semt=sph',
           height: double.infinity,
           fit: BoxFit.cover,
           width: double.infinity,
+          alignment: Alignment.center,
         ),
         Center(
           child: SingleChildScrollView(

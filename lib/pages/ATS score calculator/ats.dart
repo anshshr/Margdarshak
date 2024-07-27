@@ -59,6 +59,7 @@ class _AtsState extends State<Ats> with SingleTickerProviderStateMixin {
     setState(() {
       gemini_ans = ans;
     });
+    print(gemini_ans);
   }
 
   Future<void> showSplashAndNavigate() async {

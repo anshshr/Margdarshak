@@ -10,7 +10,6 @@ class JobsDetails extends StatelessWidget {
   String company_name;
   String location;
   String thumbnail_url;
-  // String apply_link;
   String description;
 
   JobsDetails({
@@ -19,7 +18,6 @@ class JobsDetails extends StatelessWidget {
     required this.company_name,
     required this.location,
     required this.thumbnail_url,
-    // required this.apply_link,
     required this.description,
   }) : super(key: key);
   final TextStyle heading_style =
@@ -58,36 +56,39 @@ class JobsDetails extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[
-                      Row(
-                        children: [
-                          Container(
-                            margin: EdgeInsets.only(top: 20, left: 20),
-                            height: 100,
-                            width: 100,
-                            decoration: BoxDecoration(
+                      SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          children: [
+                            Container(
+                              margin: EdgeInsets.only(top: 20, left: 20),
+                              height: 100,
+                              width: 100,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20),
+                                  border: Border.all(
+                                    color: Colors.black,
+                                    width: 1,
+                                  )),
+                              //thumbnail of the company
+                              child: ClipRRect(
                                 borderRadius: BorderRadius.circular(20),
-                                border: Border.all(
-                                  color: Colors.black,
-                                  width: 1,
-                                )),
-                            //thumbnail of the company
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(20),
-                              child: Image.network(
-                                thumbnail_url,
-                                fit: BoxFit.cover,
+                                child: Image.network(
+                                  thumbnail_url,
+                                  fit: BoxFit.cover,
+                                ),
                               ),
                             ),
-                          ),
-                          SizedBox(
-                            width: 20,
-                          ),
-                          //name of the comapny
-                          Text(
-                            company_name,
-                            style: heading_style,
-                          ),
-                        ],
+                            SizedBox(
+                              width: 20,
+                            ),
+                            //name of the comapny
+                            Text(
+                              company_name,
+                              style: heading_style,
+                            ),
+                          ],
+                        ),
                       ),
                       SizedBox(
                         height: 10,
@@ -110,13 +111,6 @@ class JobsDetails extends StatelessWidget {
                         description,
                         style: other_style,
                       ),
-                      // my_button(
-                      //     text: 'APPLY',
-                      //     ontap: () async {
-                      //       // directing  to the page to apply the link of the job
-                      //       await launchUrl(Uri.parse(apply_link),
-                      //           mode: LaunchMode.inAppBrowserView);
-                      //     })
                     ],
                   ),
                 ),

@@ -31,7 +31,7 @@ class _RegisterPageState extends State<RegisterPage> {
       backgroundColor: Colors.grey[100],
       body: Stack(children: [
         Image.network(
-          'https://i.pinimg.com/564x/77/ce/9e/77ce9e8c915e6b1c54988e22b65b5a64.jpg',
+          'https://img.freepik.com/free-vector/gradient-glassmorphism-horizontal-banner_23-2149440108.jpg',
           fit: BoxFit.cover,
           height: double.infinity,
           width: double.infinity,
@@ -47,7 +47,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 children: [
                   //welcome text
                   Text(
-                    'WELCOME BUDDY, REGISTER HERE',
+                    'WELCOME BUDDY, REGISTER YOURSELF HERE',
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                   ),
                   SizedBox(

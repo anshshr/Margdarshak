@@ -142,16 +142,14 @@ class _JobDisplayPageState extends State<JobDisplayPage> {
   String comp_name = jobDetails['company_name'];
   String desc = jobDetails['description'];
   String job_location = jobDetails['location'];
-  String job_thumbanil = jobDetails['thumbnail'] != null &&  jobDetails['thumbnail'].isNotEmpty? jobDetails['thumbnail'] : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNH_jg3tm7u-WlF4LCYG_Z09gsaIjmAGjiNQ&s';
+  String job_thumbanil = jobDetails['thumbnail'] != null &&  jobDetails['thumbnail'].isNotEmpty? jobDetails['thumbnail'] : 'https://cdn5.vectorstock.com/i/1000x1000/33/69/flat-cartoon-huge-letters-making-word-job-banner-vector-26483369.jpg';
   String job_title = jobDetails['job_highlights'] != null && jobDetails['job_highlights'].isNotEmpty && jobDetails['job_highlights'][0]['items'] != null && jobDetails['job_highlights'][0]['items'].isNotEmpty ? jobDetails['job_highlights'][0]['items'][0] : 'no title specified';
 
   Navigator.push(
     context,
     MaterialPageRoute(
       builder: (context) => JobsDetails(
-        // apply_link: apply_job_link != null && apply_job_link.isNotEmpty
-        //     ? apply_job_link
-        //     : 'https://www.naukri.com/random-jobs',
+
         company_name: comp_name != null && comp_name.isNotEmpty
             ? comp_name
             : 'Not Specified',

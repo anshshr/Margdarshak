@@ -1,7 +1,6 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, use_build_context_synchronously, prefer_const_constructors
+// ignore_for_file: prefer_const_literals_to_create_immutables, use_build_context_synchronously, prefer_const_constructors, non_constant_identifier_names
 
 import 'dart:io';
-
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
@@ -169,8 +168,9 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.purple,
       appBar: AppBar(
-        backgroundColor: Colors.purple[200],
+        backgroundColor: Colors.purple[100],
         title: Text(
           'P R O F I L E   P A G E',
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
@@ -185,10 +185,10 @@ class _ProfileState extends State<Profile> {
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors: [
-              Colors.purple[100]!,
-              Colors.purple[200]!,
-              Colors.purple[100]!,
-              Colors.purple[200]!
+              const Color.fromARGB(255, 223, 199, 228),
+              const Color.fromARGB(255, 223, 199, 228),
+              const Color.fromARGB(255, 223, 199, 228),
+              const Color.fromARGB(255, 223, 199, 228),
             ])),
         child: SingleChildScrollView(
           child: Column(
@@ -245,7 +245,6 @@ class _ProfileState extends State<Profile> {
               ),
 
               //name during registration
-
               Card(
                   shadowColor: Colors.grey,
                   borderOnForeground: true,
@@ -253,7 +252,7 @@ class _ProfileState extends State<Profile> {
                   elevation: 5,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 80, vertical: 15),
+                        horizontal: 16, vertical: 15),
                     child: Text(
                       'Name : - $name',
                       style:
@@ -264,7 +263,6 @@ class _ProfileState extends State<Profile> {
                 height: 20,
               ),
               //email during registration
-
               Card(
                   shadowColor: Colors.grey,
                   borderOnForeground: true,
@@ -284,7 +282,6 @@ class _ProfileState extends State<Profile> {
               ),
 
               //user selected topic while entering the app
-
               Card(
                   shadowColor: Colors.grey,
                   borderOnForeground: true,

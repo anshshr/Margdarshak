@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, use_build_context_synchronously, prefer_const_constructors
 
 import 'package:copy_of_margdrashak/pages/liquid%20swipe/swipe_pages.dart';
+import 'package:copy_of_margdrashak/pages/payments/offers_page.dart';
 import 'package:copy_of_margdrashak/pages/settings%20details/developer_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -42,6 +43,7 @@ class _SettingsState extends State<Settings> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Colors.indigo,
         appBar: AppBar(
           title: Text(
             'S E T T I N G S',
@@ -91,6 +93,13 @@ class _SettingsState extends State<Settings> {
                         builder: (context) => DeveloperPage(),
                       ));
                 }, Icon(Icons.person, size: 30, color: Colors.black87)),
+                 my_card('PAYMENT SECTION', () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => OffersPage(),
+                      ));
+                }, Icon(Icons.payment, size: 30, color: Colors.black87)),
                 my_card('LOGOUT', () async {
                   SharedPreferences pref =
                       await SharedPreferences.getInstance();
@@ -106,6 +115,7 @@ class _SettingsState extends State<Settings> {
                     (Route<dynamic> route) => false,
                   );
                 }, Icon(Icons.logout, size: 30, color: Colors.black87)),
+               
               ],
             ),
           ),

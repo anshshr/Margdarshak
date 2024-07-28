@@ -39,7 +39,7 @@ class _QuizStartState extends State<QuizStart> {
 
   Future<void> get_question_from_gemini() async {
     String ans = await gemini_api.getgeminidata(
-        'Just ask me a single theory question on ${widget.topic} for interview preparation without answer and no options of ${widget.difficulty}');
+        'Just ask me a single theory question or quiz question on ${widget.topic} for interview preparation without answer of ${widget.difficulty} difficulty level');
     setState(() {
       question = ans;
     });

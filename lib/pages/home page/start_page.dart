@@ -1,14 +1,12 @@
-// ignore_for_file: prefer_if_null_operators, non_constant_identifier_names, prefer_const_constructors, prefer_interpolation_to_compose_strings
+// ignore_for_file: prefer_if_null_operators, non_constant_identifier_names, prefer_const_constructors, prefer_interpolation_to_compose_strings, prefer_const_literals_to_create_immutables
 
 import 'dart:async';
 import 'dart:io';
-
 import 'package:copy_of_margdrashak/my%20widgets/my_container.dart';
 import 'package:copy_of_margdrashak/pages/ATS%20score%20calculator/ats.dart';
 import 'package:copy_of_margdrashak/pages/courses%20pages/courses.dart';
 import 'package:copy_of_margdrashak/pages/home%20page/jobs_list.dart';
 import 'package:copy_of_margdrashak/pages/interview%20questions/interview_que.dart';
-import 'package:copy_of_margdrashak/pages/payments/offers_page.dart';
 import 'package:copy_of_margdrashak/pages/quiz%20app/quiz_generator.dart';
 import 'package:copy_of_margdrashak/pages/resume%20review/resume_review.dart';
 import 'package:flutter/material.dart';
@@ -30,25 +28,7 @@ class _StartPageState extends State<StartPage> {
   @override
   void initState() {
     super.initState();
-    show_snackbar();
     get_total_details();
-  }
-
-  void show_snackbar() {
-    Future.delayed(Duration(seconds: 5), () {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text(
-        '👉🏾👉🏾👉🏾👉🏾   Swipe right on screen to get more features',
-        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,color: Colors.black87),
-      ),backgroundColor: Colors.blueGrey[100],),
-      snackBarAnimationStyle: AnimationStyle(
-        curve: Curves.bounceIn,
-        duration: Duration(seconds: 1),
-        reverseCurve: Curves.bounceInOut,
-        reverseDuration: Duration(seconds: 1),
-      ),
-      );
-    });
   }
 
   Future get_total_details() async {
@@ -156,288 +136,440 @@ class _StartPageState extends State<StartPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Colors.blue,
         body: Stack(
-      children: [
-        Container(
-          decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: [
-                Colors.blue[100]!,
-                Colors.blue[200]!,
-                Colors.blue[300]!,
-                Colors.blue[400]!,
-                Colors.blue
-              ])),
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 60)
-                .copyWith(bottom: 0),
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  Row(
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: [
+                    Colors.blue[100]!,
+                    Colors.blue[200]!,
+                    Colors.blue[300]!,
+                    Colors.blue[400]!,
+                    Colors.blue
+                  ])),
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 60)
+                    .copyWith(bottom: 0),
+                child: SingleChildScrollView(
+                  child: Column(
                     children: [
-                      //circle avatar for displaying image uploaded by user
+                      Row(
+                        children: [
+                          //circle avatar for displaying image uploaded by user
 
-                      CircleAvatar(
-                        radius: 30,
-                        child: Center(
-                            child: file == null
-                                ? Icon(
-                                    Icons.person,
-                                    color: Colors.black87,
-                                    size: 40,
-                                  )
-                                : ClipOval(
-                                    child: Align(
-                                        alignment: Alignment.topCenter,
-                                        child: Image.file(
-                                          file!,
-                                          fit: BoxFit.cover,
-                                          height: 200,
-                                          width: 200,
-                                        )),
-                                  )),
+                          CircleAvatar(
+                            radius: 30,
+                            child: Center(
+                                child: file == null
+                                    ? Icon(
+                                        Icons.person,
+                                        color: Colors.black87,
+                                        size: 40,
+                                      )
+                                    : ClipOval(
+                                        child: Align(
+                                            alignment: Alignment.topCenter,
+                                            child: Image.file(
+                                              file!,
+                                              fit: BoxFit.cover,
+                                              height: 200,
+                                              width: 200,
+                                            )),
+                                      )),
+                          ),
+                          SizedBox(
+                            width: 15,
+                          ),
+
+                          //welcome text
+                          Text(
+                            'Welcome  ${name?.split(' ')[0]}  😊',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 20),
+                          ),
+                        ],
                       ),
                       SizedBox(
-                        width: 15,
+                        height: 20,
                       ),
 
-                      //welcome text
+                      //name of features  in caraousel slider
+
+                      CarouselSlider(
+                          items: images,
+                          options: CarouselOptions(
+                              autoPlay: true,
+                              enlargeCenterPage: true,
+                              autoPlayCurve: Curves.fastOutSlowIn,
+                              autoPlayAnimationDuration: Duration(seconds: 3),
+                              initialPage: 0,
+                              enableInfiniteScroll: true,
+                              height: 200,
+                              scrollDirection: Axis.horizontal,
+                              reverse: true,
+                              enlargeFactor: 1,
+                              viewportFraction: 0.95,
+                              animateToClosest: true,
+                              disableCenter: true,
+                              pauseAutoPlayOnTouch: true)),
+                      SizedBox(
+                        height: 20,
+                      ),
                       Text(
-                        'Welcome  $name ',
+                        '⭐ We have got the best things covered for you 💫',
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 20),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+
+                      Align(
+                          alignment: Alignment.topLeft,
+                          child: Text(
+                            '👉🏾 JobAlert & Interview Prep ',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 20),
+                          )),
+
+                      SizedBox(
+                        height: 10,
+                      ),
+
+                      Row(
+                        children: [
+                          //jobs section
+                          InkWell(
+                            child: Container(
+                              height: MediaQuery.of(context).size.height * 0.2,
+                              width: MediaQuery.of(context).size.width * 0.471,
+                              child: Card(
+                                // margin: EdgeInsets.only(right: 40),
+                                shadowColor: Colors.grey,
+                                borderOnForeground: true,
+                                color: Colors.grey[300]!,
+                                elevation: 10,
+                                child: Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 10, vertical: 10),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceAround,
+                                      children: [
+                                        Icon(
+                                          Icons.home_work_sharp,
+                                          size: 34,
+                                          color: Colors.black87,
+                                        ),
+                                        Text(
+                                          'JOB SEARCH',
+                                          style: TextStyle(
+                                              fontSize: 17,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                        Text(
+                                          'Get Personalized Job Alerts',
+                                          style: TextStyle(
+                                              fontSize: 15,
+                                              fontWeight: FontWeight.w500),
+                                        )
+                                      ],
+                                    )),
+                              ),
+                            ),
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => JobDisplayPage(),
+                                  ));
+                            },
+                          ),
+                          //interview preparation section
+                          InkWell(
+                            child: Container(
+                              height: MediaQuery.of(context).size.height * 0.2,
+                              width: MediaQuery.of(context).size.width * 0.471,
+                              child: Card(
+                                shadowColor: Colors.grey,
+                                borderOnForeground: true,
+                                color: Colors.grey[300]!,
+                                elevation: 10,
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 10, vertical: 10),
+                                  child: Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
+                                    children: [
+                                      Icon(
+                                        Icons.question_answer,
+                                        size: 34,
+                                        color: Colors.black87,
+                                      ),
+                                      Text(
+                                        'INTERVIEW PREP.',
+                                        style: TextStyle(
+                                            fontSize: 17,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      Text(
+                                        'Get preared for your Interviews',
+                                        style: TextStyle(
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.w500),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => InterviewQue(),
+                                  ));
+                            },
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Align(
+                          alignment: Alignment.topLeft,
+                          child: Text(
+                            '👉🏾 QuizMaster & Interview Ready ',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 20),
+                          )),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Row(
+                        children: [
+                          //courses section
+                          InkWell(
+                            child: Container(
+                              height: MediaQuery.of(context).size.height * 0.2,
+                              width: MediaQuery.of(context).size.width * 0.471,
+                              child: Card(
+                                shadowColor: Colors.grey,
+                                borderOnForeground: true,
+                                color: Colors.grey[300]!,
+                                elevation: 10,
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 10, vertical: 10),
+                                  child: Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
+                                    children: [
+                                      Icon(
+                                        Icons.book_rounded,
+                                        size: 34,
+                                        color: Colors.black87,
+                                      ),
+                                      Text(
+                                        'COURSES',
+                                        style: TextStyle(
+                                            fontSize: 17,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      Text(
+                                        'Start with new  courses',
+                                        style: TextStyle(
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.w500),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => Courses(),
+                                  ));
+                            },
+                          ),
+                          //quiz section
+                          InkWell(
+                            child: Container(
+                              height: MediaQuery.of(context).size.height * 0.2,
+                              width: MediaQuery.of(context).size.width * 0.471,
+                              child: Card(
+                                shadowColor: Colors.grey,
+                                borderOnForeground: true,
+                                color: Colors.grey[300]!,
+                                elevation: 10,
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 10, vertical: 10),
+                                  child: Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
+                                    children: [
+                                      Icon(
+                                        Icons.computer,
+                                        size: 34,
+                                        color: Colors.black87,
+                                      ),
+                                      Text(
+                                        'QUIZ ARENA',
+                                        style: TextStyle(
+                                            fontSize: 17,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      Text(
+                                        'Improve your skills with Quizzes',
+                                        style: TextStyle(
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.w500),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => QuizGenerator(),
+                                  ));
+                            },
+                          ),
+                        ],
+                      ),
+
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Align(
+                          alignment: Alignment.topLeft,
+                          child: Text(
+                            '👉🏾 ATS Optimizer & Review Hub ',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 20),
+                          )),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Row(
+                        children: [
+                          //ats score section
+                          InkWell(
+                            child: Container(
+                              height: MediaQuery.of(context).size.height * 0.2,
+                              width: MediaQuery.of(context).size.width * 0.471,
+                              child: Card(
+                                shadowColor: Colors.grey,
+                                borderOnForeground: true,
+                                color: Colors.grey[300]!,
+                                elevation: 10,
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 10, vertical: 10),
+                                  child: Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
+                                    children: [
+                                      Icon(
+                                        Icons.assessment,
+                                        size: 34,
+                                        color: Colors.black87,
+                                      ),
+                                      Text(
+                                        'ATS SCORE',
+                                        style: TextStyle(
+                                            fontSize: 17,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      Text(
+                                        'Calculate accurate ATS score',
+                                        style: TextStyle(
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.w500),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => Ats(),
+                                  ));
+                            },
+                          ),
+                          //resume review section
+                          InkWell(
+                            child: Container(
+                              height: MediaQuery.of(context).size.height * 0.2,
+                              width: MediaQuery.of(context).size.width * 0.471,
+                              child: Card(
+                                shadowColor: Colors.grey,
+                                borderOnForeground: true,
+                                color: Colors.grey[300]!,
+                                elevation: 10,
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 10, vertical: 10),
+                                  child: Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
+                                    children: [
+                                      Icon(
+                                        Icons.rate_review_rounded,
+                                        size: 34,
+                                        color: Colors.black87,
+                                      ),
+                                      Text(
+                                        'RESUME REVIEW',
+                                        style: TextStyle(
+                                            fontSize: 17,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      Text(
+                                        'Get feedback on your resume',
+                                        style: TextStyle(
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.w500),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => ResumeReview(),
+                                  ));
+                            },
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 10,
                       ),
                     ],
                   ),
-                  SizedBox(
-                    height: 20,
-                  ),
-
-                  Text(
-                    'We have got the best things covered for you',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                  ),
-                  SizedBox(
-                    height: 30,
-                  ),
-                  //name of features  in caraousel slider
-
-                  CarouselSlider(
-                      items: images,
-                      options: CarouselOptions(
-                          autoPlay: true,
-                          enlargeCenterPage: true,
-                          autoPlayCurve: Curves.fastOutSlowIn,
-                          autoPlayAnimationDuration: Duration(seconds: 3),
-                          initialPage: 0,
-                          enableInfiniteScroll: true,
-                          height: 200,
-                          scrollDirection: Axis.horizontal,
-                          reverse: true,
-                          enlargeFactor: 1,
-                          viewportFraction: 0.95,
-                          animateToClosest: true,
-                          disableCenter: true,
-                          pauseAutoPlayOnTouch: true)),
-                  SizedBox(
-                    height: 20,
-                  ),
-
-                  Align(
-                      alignment: Alignment.topLeft,
-                      child: Text(
-                        'Top Picks for only you , ',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 20),
-                      )),
-
-                  SizedBox(
-                    height: 20,
-                  ),
-                  //jobs section
-                  InkWell(
-                    child: Card(
-                      shadowColor: Colors.grey,
-                      borderOnForeground: true,
-                      color: Colors.white,
-                      elevation: 10,
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 10, vertical: 10),
-                        child: Text(
-                          '👨🏾‍💻👨🏾‍💻  SEE THE LATEST JOBS OF YOUR PREFERENCE',
-                          style: TextStyle(
-                              fontSize: 17, fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    ),
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => JobDisplayPage(),
-                          ));
-                    },
-                  ),
-                  //quiz section
-                  InkWell(
-                    child: Card(
-                      shadowColor: Colors.grey,
-                      borderOnForeground: true,
-                      color: Colors.white,
-                      elevation: 10,
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 10, vertical: 10),
-                        child: Text(
-                          '😊😊 START YOUR DAY WITH THE PRACTICE SESSIONS',
-                          style: TextStyle(
-                              fontSize: 17, fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    ),
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => QuizGenerator(),
-                          ));
-                    },
-                  ),
-                  //courses section
-                  InkWell(
-                    child: Card(
-                      shadowColor: Colors.grey,
-                      borderOnForeground: true,
-                      color: Colors.white,
-                      elevation: 10,
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 10, vertical: 10),
-                        child: Text(
-                          "📖📖  LET'S LEARN SOMETHING NEW TODAY",
-                          style: TextStyle(
-                              fontSize: 17, fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    ),
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => Courses(),
-                          ));
-                    },
-                  ),
-                  //interview preparation section
-                  InkWell(
-                    child: Card(
-                      shadowColor: Colors.grey,
-                      borderOnForeground: true,
-                      color: Colors.white,
-                      elevation: 10,
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 10, vertical: 10),
-                        child: Text(
-                          '🙋🏾‍♂️🙋🏾‍♂️  READ THE LAST MINUTE INTERVIEW QUESTION ',
-                          style: TextStyle(
-                              fontSize: 17, fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    ),
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => InterviewQue(),
-                          ));
-                    },
-                  ),
-                  //ats score section
-                  InkWell(
-                    child: Card(
-                      shadowColor: Colors.grey,
-                      borderOnForeground: true,
-                      color: Colors.white,
-                      elevation: 10,
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 10, vertical: 10),
-                        child: Text(
-                          '🧑🏾‍🏫🧑🏾‍🏫  CHECKOUT THE ATS SCORE OF YOUR RESUME',
-                          style: TextStyle(
-                              fontSize: 17, fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    ),
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => Ats(),
-                          ));
-                    },
-                  ),
-                  //resume review section
-                  InkWell(
-                    child: Card(
-                      shadowColor: Colors.grey,
-                      borderOnForeground: true,
-                      color: Colors.white,
-                      elevation: 10,
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 10, vertical: 10),
-                        child: Text(
-                          '📄📄  COMPARE YOUR JOB DESCRIPTION WITH YOUR RESUME',
-                          style: TextStyle(
-                              fontSize: 17, fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    ),
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => ResumeReview(),
-                          ));
-                    },
-                  ),
-                  //PAYMENT SECTION
-                  InkWell(
-                    child: Card(
-                      shadowColor: Colors.grey,
-                      borderOnForeground: true,
-                      color: Colors.white,
-                      elevation: 10,
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 10, vertical: 10),
-                        child: Text(
-                          ' 💵💵 CHECK OUT THE PAYMENT SECTION ',
-                          style: TextStyle(
-                              fontSize: 17, fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    ),
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => OffersPage(),
-                          ));
-                    },
-                  ),
-                ],
+                ),
               ),
-            ),
-          ),
-        )
-      ],
-    ));
+            )
+          ],
+        ));
   }
 }

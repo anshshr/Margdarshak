@@ -1,4 +1,4 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first, non_constant_identifier_names, use_super_parameters, unused_local_variable, prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: public_member_api_docs, sort_constructors_first, non_constant_identifier_names, use_super_parameters, unused_local_variable, prefer_const_constructors, prefer_const_literals_to_create_immutables, unnecessary_null_comparison
 import 'package:copy_of_margdrashak/extra%20operations/job_api.dart';
 import 'package:copy_of_margdrashak/pages/home%20page/jobs_details.dart';
 import 'package:flutter/material.dart';

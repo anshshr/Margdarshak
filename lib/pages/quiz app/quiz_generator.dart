@@ -41,7 +41,6 @@ class _QuizGeneratorState extends State<QuizGenerator> {
                 Text('Hello , I am Arya(A.I. assistant)',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17),),
                 SizedBox(height: 10,),
                 //space for animation
-
                 Lottie.network(
                   'https://lottie.host/c14d4558-399e-47a7-8e18-4b31445dbbc5/flA9LAwGHe.json',
                 ),

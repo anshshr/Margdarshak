@@ -104,7 +104,7 @@ Future feedback_dialog(BuildContext context) {
             my_button(
                 text: 'S U B M I T',
                 ontap: () async {
-                  if ( feedback.text != "" && feedback.text.isNotEmpty) {
+                  if (feedback.text != "" && feedback.text.isNotEmpty) {
                     SharedPreferences pref =
                         await SharedPreferences.getInstance();
                     print('sending email');

@@ -41,7 +41,7 @@ class _QuizStartState extends State<QuizStart> {
     String ans = await gemini_api.getgeminidata(
         'Just ask me a single theory question or quiz question on ${widget.topic} for interview preparation without answer of ${widget.difficulty} difficulty level');
     setState(() {
-      question = ans;
+      question = ans.replaceAll('*', '');
     });
   }
   //asking the question to user

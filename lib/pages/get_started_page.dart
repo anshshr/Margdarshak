@@ -2,6 +2,7 @@
 
 import 'dart:async';
 
+import 'package:copy_of_margdrashak/bottom_navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:getwidget/components/button/gf_button.dart';
 import 'package:getwidget/getwidget.dart';
@@ -506,7 +507,7 @@ class _HomePageState extends State<HomePage> {
                       Navigator.pushAndRemoveUntil(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => HiddenDrawer(),
+                            builder: (context) => BottomNavigation(),
                           ),(Route<dynamic> route) => false,);
                     })
               ],

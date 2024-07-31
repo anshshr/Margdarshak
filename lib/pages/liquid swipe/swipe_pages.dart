@@ -9,8 +9,6 @@ import '../../my widgets/my_button.dart';
 import '../register_page.dart';
 import 'pages.dart';
 
-
-
 class SwipePages extends StatefulWidget {
   const SwipePages({super.key});
 
@@ -20,6 +18,12 @@ class SwipePages extends StatefulWidget {
 
 class _SwipePagesState extends State<SwipePages> {
   LiquidController controller = LiquidController();
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,11 +32,6 @@ class _SwipePagesState extends State<SwipePages> {
           LiquidSwipe(
             pages: pages,
             liquidController: controller,
-            // enableSideReveal: true,
-            // slideIconWidget: Icon(
-            //   Icons.arrow_back,
-            //   color: Colors.black87,
-            // ),
             onPageChangeCallback: (index) {
               setState(() {});
             },

@@ -1,5 +1,4 @@
 // ignore_for_file: prefer_const_constructors, non_constant_identifier_names, prefer_const_literals_to_create_immutables
-
 import 'package:copy_of_margdrashak/pages/home%20page/start_page.dart';
 import 'package:copy_of_margdrashak/pages/profile%20page/profile.dart';
 import 'package:copy_of_margdrashak/pages/settings%20details/settings.dart';
@@ -14,17 +13,19 @@ class BottomNavigation extends StatefulWidget {
 }
 
 class _BottomNavigationState extends State<BottomNavigation> {
-  List pages = [
-    StartPage(),
-    Profile(),
-    Settings()
-  ];
+  List pages = [StartPage(), Profile(), Settings()];
   int current_index = 0;
   void ontabtaapped(int index) {
     setState(() {
       current_index = index;
     });
   }
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +33,6 @@ class _BottomNavigationState extends State<BottomNavigation> {
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
           color: Color.fromARGB(255, 172, 186, 198),
-          
         ),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),

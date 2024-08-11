@@ -8,8 +8,6 @@ import 'package:getwidget/components/button/gf_button.dart';
 import 'package:getwidget/getwidget.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
-
-import '../my widgets/hidden_drawer.dart';
 import '../my widgets/my_button.dart';
 
 class HomePage extends StatefulWidget {
@@ -96,9 +94,7 @@ class _HomePageState extends State<HomePage> {
         body: Align(
           child: Container(
             decoration: BoxDecoration(
-                gradient: LinearGradient(
-
-                  colors: [
+                gradient: LinearGradient(colors: [
               Colors.lightBlue[100]!,
               Colors.blue[200]!,
               Colors.blue[300]!,
@@ -505,10 +501,12 @@ class _HomePageState extends State<HomePage> {
                       pref.setStringList('courses selected', ans["labels"]);
                       pref.setInt('no_of_courses', ans["count"]);
                       Navigator.pushAndRemoveUntil(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => BottomNavigation(),
-                          ),(Route<dynamic> route) => false,);
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => BottomNavigation(),
+                        ),
+                        (Route<dynamic> route) => false,
+                      );
                     })
               ],
             ),

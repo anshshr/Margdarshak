@@ -9,7 +9,7 @@ import 'package:get/get_rx/get_rx.dart';
 
 import 'package:lottie/lottie.dart';
 import '../../gemini/gemini_services.dart';
-import '../../extra operations/text_extraction.dart';
+import '../../extra_operations/text_extraction.dart';
 import '../../my widgets/my_button.dart';
 import 'resume_alingment.dart';
 

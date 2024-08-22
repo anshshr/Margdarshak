@@ -3,7 +3,7 @@
 
 import 'package:flutter/material.dart';
 
-import '../../extra operations/youtube_api.dart';
+import '../../extra_operations/youtube_api.dart';
 import 'youtube_player_page.dart';
 
 class DisplayPage extends StatefulWidget {
@@ -21,8 +21,9 @@ class _DisplayPageState extends State<DisplayPage> {
   List<dynamic> data = [];
   bool isloaded = false;
   Future<void> get_youtube_data() async {
-    List<dynamic> youtube_data =
-        await fetchYouTubeSearchResults(widget.course_name + 'one shot pogramming courses'); 
+    List<dynamic> youtube_data = await fetchYouTubeSearchResults(
+        widget.course_name +
+            'one shot pogramming courses in english language only and less than 15-20 min  ');
     setState(() {
       data.addAll(youtube_data);
       isloaded = true;
@@ -33,8 +34,6 @@ class _DisplayPageState extends State<DisplayPage> {
   Future fetch_data() async {
     await get_youtube_data();
   }
-
-
 
   @override
   void initState() {

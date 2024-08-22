@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 
 import 'package:lottie/lottie.dart';
 
-import '../../extra operations/text_extraction.dart';
+import '../../extra_operations/text_extraction.dart';
 import '../../gemini/gemini_services.dart';
 import '../../my widgets/my_button.dart';
 import 'ats_details.dart';

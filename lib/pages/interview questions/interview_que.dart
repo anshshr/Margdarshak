@@ -48,7 +48,7 @@ class _InterviewQueState extends State<InterviewQue> {
               ])),
           child: Column(
             children: <Widget>[
-              Text(
+              const Text(
                 'Get Prepared for your Intervierws',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
               ),

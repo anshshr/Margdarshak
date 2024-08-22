@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors, unnecessary_null_comparison
 
-import 'package:copy_of_margdrashak/extra%20operations/job_api.dart';
+import 'package:copy_of_margdrashak/extra_operations/job_api.dart';
 import 'package:copy_of_margdrashak/pages/home%20page/job_search_result.dart';
 import 'package:copy_of_margdrashak/pages/home%20page/jobs_details.dart';
 import 'package:flutter/material.dart';

@@ -36,6 +36,9 @@
 
 - **👨‍🏫 Connect with a Mentor**  
   Facilitates personalized guidance by connecting users with mentors through a **tag-based AI agent**, ensuring relevant and valuable career advice.
+  
+- **🔧 PlantUML Flowchart Generator**  
+  This feature allows you to generate flowchart diagrams using PlantUML syntax based on any topic you provide. It uses Groq's LLM to understand the topic and generate accurate and structured PlantUML code. The code is then encoded into a URL that displays the diagram as an image..
 
 ---
 
